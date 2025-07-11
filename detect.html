@@ -3,55 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Try Deepfake Detection</title>
+  <title>Scan & Detect Deepfakes</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- ===== Navigation (shared) ===== -->
-  <header class="navbar">
-    <h1 class="logo">Deepfake Detect</h1>
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="detect.html" class="active">Try It</a>
-      <a href="about.html">About</a>
-    </nav>
+  <!-- ░░ Header ░░ -->
+  <header class="dw-header">
+    <div class="dw-container header-inner">
+      <a href="index.html" class="dw-logo">deepfake<span>Detect</span></a>
+
+      <nav class="header-actions">
+        <a href="#" class="api-btn">API</a>
+        <a href="https://github.com/Sabarinath1809" target="_blank" class="git-icon" title="GitHub">
+          <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path
+          d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38
+          0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+          -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87
+          2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+          0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.11 0 0 .67-.21
+          2.2.82a7.65 7.65 0 012-.27 7.62 7.62 0 012 .27c1.53-1.04
+          2.2-.82 2.2-.82.44 1.1.16 1.91.08 2.11.51.56.82 1.27.82 2.15
+          0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
+          0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0 0016 8
+          C16 3.58 12.42 0 8 0z"></path></svg>
+        </a>
+      </nav>
+    </div>
   </header>
 
-  <!-- ===== Detection UI ===== -->
-  <main class="detect-page">
-    <!-- Upload Card -->
-    <section class="upload-card">
-      <h2>Upload Image or Video</h2>
+  <!-- ░░ Hero / Scanner ░░ -->
+  <main class="dw-main">
+    <div class="dw-container scanner-card">
+      <h1>Scan & Detect Deepfake Media</h1>
+      <p class="subline">Paste a media URL or upload a file to analyse authenticity.</p>
 
-      <!-- Drag‑and‑Drop Zone -->
-      <label for="fileInput" class="drop-zone" id="dropZone">
-        <p class="dz-icon">📂</p>
-        <p class="dz-text">Drag & drop a file here or <span class="dz-browse">browse</span></p>
-        <input type="file" id="fileInput" hidden />
+      <!-- Input + upload icon -->
+      <div class="input-group">
+        <input type="text" id="urlInput" placeholder="https://www.example.com/" />
+        <label for="fileInput" class="upload-icon" title="Upload file">
+          ⬆
+          <input type="file" id="fileInput" hidden />
+        </label>
+      </div>
+
+      <!-- Terms checkbox -->
+      <label class="terms">
+        <input type="checkbox" id="termsChk" checked />
+        By submitting data, you agree to our <a href="#">Terms of Service</a> &amp; <a href="#">Privacy Policy</a>
       </label>
 
-      <!-- Analyse Button -->
-      <button class="analyse-btn" id="analyseBtn" disabled>Analyse Now</button>
-
-      <!-- Progress Bar -->
-      <div class="progress-wrap" id="progressWrap">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
-    </section>
-
-    <!-- Result Card -->
-    <section class="result-card" id="resultCard" hidden>
-      <h2>Result</h2>
-      <div class="result-badge" id="resultBadge">REAL</div>
-      <p class="confidence" id="confidenceText">Confidence: 98%</p>
-      <img id="heatmapImg" alt="Grad‑CAM heatmap" />
-      <button class="analyse-btn" onclick="resetUI()">Analyse Another</button>
-    </section>
+      <!-- Scan button -->
+      <button class="scan-btn" id="scanBtn" disabled>SCAN</button>
+    </div>
   </main>
 
-  <!-- ===== Footer (shared) ===== -->
-  <footer class="site-footer">
-    <p>&copy; 2025 Deepfake Detection Project</p>
+  <!-- ░░ Footer ░░ -->
+  <footer class="dw-footer">
+    <div class="dw-container footer-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="dw-logo">deepfake<span>Detect</span></a>
+      </div>
+
+      <div class="foot-links">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="#">Contact Us</a>
+        <a href="#">FAQ</a>
+      </div>
+
+      <div class="foot-links">
+        <h4>Where We Are</h4>
+        <p>Pillai College of Engineering<br>Mumbai, India</p>
+        <p><a href="mailto:info@example.com">info@example.com</a></p>
+      </div>
+
+      <div class="foot-social">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Twitter">t</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      &copy; 2025 deepfakeDetect — All rights reserved.
+    </div>
   </footer>
 
   <script src="js/uploadHandler.js"></script>
