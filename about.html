@@ -2,104 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About • Deepfake Detection Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Deepfake Detection</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .about-container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+      color: #e0e0e0;
+      line-height: 1.7;
+    }
+
+    .about-container h2 {
+      font-size: 2rem;
+      color: #00ffff;
+      margin-bottom: 15px;
+    }
+
+    .about-container p {
+      margin-bottom: 20px;
+    }
+
+    .about-container .highlight {
+      color: #f39c12;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <!-- ░░ Global Nav ░░ -->
+  <!-- Header -->
   <header class="navbar">
-    <h1 class="logo">Deepfake Detect</h1>
+    <h1 class="logo">Deepfake&nbsp;Detect</h1>
     <nav class="nav-links">
       <a href="index.html">Home</a>
-      <a href="detect.html">Try It</a>
+      <a href="detect.html">Try It</a>
       <a href="about.html" class="active">About</a>
     </nav>
   </header>
 
-  <!-- ░░ Main content ░░ -->
-  <main class="about-wrapper">
-    <!-- Overview -->
-    <section class="about-section">
-      <h2>Project Overview</h2>
-      <p>
-        This final‑year project presents a <strong>smart, multi‑stage system</strong> for detecting
-        deepfake images and videos. The pipeline combines face alignment,
-        feature extraction, temporal analysis, and visual explanation to
-        deliver a clear verdict on media authenticity.
-      </p>
-    </section>
-
-    <!-- How it works -->
-    <section class="about-section">
-      <h2>How It Works</h2>
-      <ol class="how-list">
-        <li><strong>MTCNN</strong> locates & aligns faces in each frame.</li>
-        <li><strong>XceptionNet</strong> extracts deep visual features.</li>
-        <li><strong>LSTM</strong> captures temporal inconsistencies across frames.</li>
-        <li><strong>Grad‑CAM</strong> highlights manipulated regions for transparency.</li>
-      </ol>
-    </section>
-
-    <!-- Tech stack -->
-    <section class="about-section tech-grid">
-      <h2>Technology Stack</h2>
-      <div class="tech-item">
-        <h3>Frontend</h3>
-        <ul>
-          <li>HTML, CSS (custom dark theme)</li>
-          <li>Vanilla JavaScript (file upload, progress, API calls)</li>
-          <li>GitHub Pages for hosting</li>
-        </ul>
-      </div>
-      <div class="tech-item">
-        <h3>Backend</h3>
-        <ul>
-          <li>Python 3 – Flask API</li>
-          <li>MTCNN, Keras (XceptionNet), TensorFlow (LSTM)</li>
-          <li>OpenCV, Grad‑CAM utils</li>
-        </ul>
-      </div>
-      <div class="tech-item">
-        <h3>Datasets</h3>
-        <ul>
-          <li>FaceForensics++</li>
-          <li>DFDC (Deepfake Detection Challenge)</li>
-          <li>Celeb‑DF v2</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <section class="about-section team">
-      <h2>Team & Acknowledgements</h2>
-      <div class="member">
-        <img src="https://via.placeholder.com/80" alt="Profile" />
-        <div>
-          <h3>Sabarinath R. Nair</h3>
-          <p>Frontend & Research</p>
-        </div>
-      </div>
-      <div class="member">
-        <img src="https://via.placeholder.com/80" alt="Profile" />
-        <div>
-          <h3>[Friend’s Name]</h3>
-          <p>Model Training & Backend</p>
-        </div>
-      </div>
-      <div class="member">
-        <img src="https://via.placeholder.com/80" alt="Professor" />
-        <div>
-          <h3>Prof. Rasika Thakare</h3>
-          <p>Project Supervisor, Pillai College of Engineering</p>
-        </div>
-      </div>
-    </section>
+  <!-- About Section -->
+  <main class="about-container">
+    <h2>About This Project</h2>
+    <p>
+      <span class="highlight">Deepfake Detect</span> is an AI-driven platform built to identify and flag manipulated media — whether image or video. With the rise of synthetic content, it's essential to have tools that can help verify digital media authenticity.
+    </p>
+    <p>
+      This system utilizes powerful deep learning models including <span class="highlight">MTCNN</span>, <span class="highlight">XceptionNet</span>, <span class="highlight">LSTM</span>, and advanced techniques like <span class="highlight">Grad-CAM</span> and <span class="highlight">Optical Flow</span> to detect deepfakes with high accuracy.
+    </p>
+    <p>
+      It is built as part of a final year academic project with the goal of enhancing public awareness and providing practical AI-based solutions to combat misinformation.
+    </p>
+    <p>
+      Upload any media to see our detection model in action — <a href="detect.html" style="color: #00ffff;">Try it here →</a>
+    </p>
   </main>
 
-  <!-- ░░ Footer ░░ -->
+  <!-- Footer -->
   <footer class="site-footer">
-    <p>&copy; 2025 Deepfake Detection Project</p>
+    <p>&copy; 2025 Deepfake Detection Project</p>
   </footer>
 </body>
 </html>
