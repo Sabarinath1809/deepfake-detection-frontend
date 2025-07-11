@@ -83,3 +83,132 @@ body {
   font-size: 0.9rem;
 }
 
+/* ==== Detect Page Layout ==== */
+.detect-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem 1rem;
+}
+
+/* ==== Upload Card ==== */
+.upload-card,
+.result-card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-dark);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.upload-card h2,
+.result-card h2 {
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+/* Drag & Drop Zone */
+.drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #333;
+  border-radius: 10px;
+  padding: 2.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.drop-zone:hover {
+  background: #202020;
+  border-color: var(--accent);
+}
+
+.dz-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.dz-text {
+  font-size: 0.95rem;
+}
+
+.dz-browse {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Analyse Button */
+.analyse-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.6rem;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: opacity 0.2s;
+}
+
+.analyse-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.analyse-btn:not(:disabled):hover {
+  opacity: 0.9;
+}
+
+/* Progress Bar */
+.progress-wrap {
+  width: 100%;
+  height: 8px;
+  background: #222;
+  border-radius: 99px;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+/* Result Card */
+.result-badge {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.result-badge.REAL {
+  background: #008f66;
+}
+
+.result-badge.FAKE {
+  background: #b00020;
+}
+
+.confidence {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+#heatmapImg {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
