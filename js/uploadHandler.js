@@ -1,5 +1,4 @@
 const fileInput = document.getElementById("fileInput");
-const fileLabel = document.getElementById("fileLabel");
 const termsChk  = document.getElementById("termsChk");
 const scanBtn   = document.getElementById("scanBtn");
 const progressShell = document.getElementById("progressShell");
@@ -10,51 +9,39 @@ const confText      = document.getElementById("confText");
 const heatImg       = document.getElementById("heatImg");
 
 fileInput.addEventListener("change", () => {
-  if (fileInput.files.length) {
-    fileLabel.classList.add("filled");
-    fileLabel.firstChild.textContent = fileInput.files[0].name;
-  } else {
-    fileLabel.classList.remove("filled");
-    fileLabel.firstChild.textContent = "Choose Image / Video";
-  }
-  ready();
+  console.log("FILE PICKED", fileInput.files);
+  checkReady();
 });
-termsChk.addEventListener("change", ready);
+termsChk.addEventListener("change", checkReady);
 
-function ready() {
-  scanBtn.disabled = !(termsChk.checked && fileInput.files.length > 0);
+function checkReady(){
+  scanBtn.disabled = !(termsChk.checked && fileInput.files.length);
 }
 
-/* Simulated scan */
 scanBtn.addEventListener("click", () => {
   scanBtn.disabled = true;
   progressShell.hidden = false;
   let pct = 0;
-  const t = setInterval(() => {
-    pct += 8;
-    progressFill.style.width = pct + "%";
-    if (pct >= 100) {
-      clearInterval(t);
-      showDemo();
-    }
-  }, 100);
+  const t = setInterval(()=>{
+    pct+=10;
+    progressFill.style.width = pct+"%";
+    if(pct>=100){clearInterval(t); showDemo();}
+  },120);
 });
 
-function showDemo() {
-  const fake = Math.random() > 0.5;
-  verdict.textContent = fake ? "FAKE" : "REAL";
-  verdict.className = `verdict ${fake ? "FAKE" : "REAL"}`;
-  confText.textContent = `Confidence – ${Math.floor(85 + Math.random()*14)} %`;
-  heatImg.src = "https://via.placeholder.com/500x220.png?text=Grad‑CAM+heat‑map";
-  resultPanel.hidden = false;
-  progressShell.hidden = true;
+function showDemo(){
+  const fake = Math.random()>.5;
+  verdict.textContent = fake?"FAKE":"REAL";
+  verdict.className = "verdict "+(fake?"FAKE":"REAL");
+  confText.textContent = "Confidence – "+(90+Math.floor(Math.random()*9))+" %";
+  heatImg.src="https://via.placeholder.com/520x220.png?text=Grad‑CAM";
+  resultPanel.hidden=false;
+  progressShell.hidden=true;
 }
 
-function resetUI() {
-  fileInput.value = "";
-  fileLabel.classList.remove("filled");
-  fileLabel.firstChild.textContent = "Choose Image / Video";
-  progressFill.style.width = "0";
-  resultPanel.hidden = true;
-  ready();
+function resetUI(){
+  fileInput.value="";
+  progressFill.style.width="0";
+  resultPanel.hidden=true;
+  checkReady();
 }
