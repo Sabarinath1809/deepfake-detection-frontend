@@ -20,8 +20,12 @@
   <!-- ░░ Detection Workspace ░░ -->
   <main class="scan-wrapper">
  <!-- Upload card -->
-<section class="scan-card vivid-card">
-  <h2 class="card-title">Upload & Scan</h2>
+<div class="upload-row">
+  <input type="file" id="fileInput" hidden accept="image/*,video/*" />
+  <button type="button" id="chooseBtn" class="choose-btn">Choose Image / Video</button>
+  <span id="fileName" class="file-name">No file selected</span>
+</div>
+
 
   <!-- NEW upload zone -->
   <input
