@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deepfake Detection • Scan Media</title>
+  <title>Deepfake Detection • Upload & Scan</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- ░░ Global Nav ░░ -->
-  <header class="navbar">
-    <h1 class="logo">Deepfake Detect</h1>
+  <!-- ░░ Colourful Header ░░ -->
+  <header class="navbar bright-nav">
+    <h1 class="logo rainbow">Deepfake Detect</h1>
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="detect.html" class="active">Try It</a>
@@ -20,11 +20,12 @@
   <!-- ░░ Detection Workspace ░░ -->
   <main class="scan-wrapper">
     <!-- Upload card -->
-    <section class="scan-card">
-      <h2 class="card-title">Upload & Detect Deepfakes</h2>
+    <section class="scan-card vivid-card">
+      <h2 class="card-title">Upload & Scan</h2>
 
-      <!-- File chooser only -->
-      <label class="file-only-btn" for="fileInput">Choose Image / Video
+      <!-- File chooser -->
+      <label class="file-only-btn" for="fileInput" id="fileLabel">
+        Choose Image / Video
         <input type="file" id="fileInput" hidden />
       </label>
 
@@ -43,7 +44,7 @@
     </section>
 
     <!-- Result panel -->
-    <section class="result-panel" id="resultPanel" hidden>
+    <section class="result-panel vivid-card" id="resultPanel" hidden>
       <h3>Result</h3>
       <div class="verdict" id="verdict">REAL</div>
       <p id="confText">Confidence – 97 %</p>
@@ -52,8 +53,8 @@
     </section>
   </main>
 
-  <!-- ░░ Footer ░░ -->
-  <footer class="site-footer">
+  <!-- ░░ Footer (unchanged) ░░ -->
+  <footer class="site-footer colourful-footer">
     <p>&copy; 2025 Deepfake Detection Project</p>
   </footer>
 
