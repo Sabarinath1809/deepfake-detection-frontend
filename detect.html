@@ -2,87 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deepfake Detection • Upload & Scan</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detect Deepfakes</title>
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-  <!-- ░░ Colourful Header ░░ -->
   <header class="navbar">
-   <h1 class="logo">Deepfake Detect</h1>
+    <h1 class="logo">Deepfake&nbsp;Detect</h1>
     <nav class="nav-links">
       <a href="index.html">Home</a>
-      <a href="detect.html" class="active">Try It</a>
-      <a href="about.html">About</a>
+      <a href="detect.html" class="active">Try It</a>
     </nav>
   </header>
 
-  <!-- ░░ Detection Workspace ░░ -->
   <main class="scan-wrapper">
- <!-- Upload card -->
-<div class="upload-row">
-  <input type="file" id="fileInput" hidden accept="image/*,video/*" />
-  <button type="button" id="chooseBtn" class="choose-btn">Choose Image / Video</button>
-  <span id="fileName" class="file-name">No file selected</span>
-</div>
+    <section class="scan-card">
+      <h2 class="card-title">Upload & Scan</h2>
 
+      <!-- File Upload -->
+      <div class="upload-row">
+        <input type="file" id="fileInput" hidden accept="image/*,video/*"/>
+        <button type="button" id="chooseBtn" class="choose-btn">Choose Image / Video</button>
+        <span id="fileName" class="file-name">No file selected</span>
+      </div>
 
-  <!-- NEW upload zone -->
-  <input
-    type="file"
-    id="fileInput"
-    class="file-drop"
-    accept="image/*,video/*"
-  />
-
-  <p class="hint">PNG, JPG, MP4, MOV… max 150 MB</p>
-
-  <label class="terms-line">
-    <input type="checkbox" id="termsChk" checked />
-    I accept the <a href="#">Terms</a>.
-  </label>
-
-  <button id="scanBtn" class="primary-btn" disabled>Scan</button>
-
-  <div class="progress-shell" id="progressShell" hidden>
-    <div class="progress-fill" id="progressFill"></div>
-  </div>
-</section>
-
-
-      <!-- File chooser -->
-      <label class="file-only-btn" for="fileInput" id="fileLabel">
-        Choose Image / Video
-        <input type="file" id="fileInput" hidden />
-      </label>
-
-      <!-- Terms -->
       <label class="terms-line">
-        <input type="checkbox" id="termsChk" checked /> I accept the <a href="#">Terms</a>.
+        <input type="checkbox" id="termsChk" checked />
+        I agree to the <a href="#">terms and conditions</a>.
       </label>
 
-      <!-- Scan button -->
       <button id="scanBtn" class="primary-btn" disabled>Scan</button>
 
-      <!-- Progress bar -->
       <div class="progress-shell" id="progressShell" hidden>
         <div class="progress-fill" id="progressFill"></div>
       </div>
     </section>
 
-    <!-- Result panel -->
-    <section class="result-panel vivid-card" id="resultPanel" hidden>
+    <section class="result-panel" id="resultPanel" hidden>
       <h3>Result</h3>
       <div class="verdict" id="verdict">REAL</div>
-      <p id="confText">Confidence – 97 %</p>
+      <p id="confText">Confidence – 97 %</p>
       <img id="heatImg" alt="Grad‑CAM heat‑map" />
-      <button class="outline-btn" onclick="resetUI()">Scan another</button>
+      <button class="outline-btn" onclick="resetUI()">Scan Another</button>
     </section>
   </main>
 
-  <!-- ░░ Footer (unchanged) ░░ -->
-  <footer class="site-footer colourful-footer">
-    <p>&copy; 2025 Deepfake Detection Project</p>
+  <footer class="site-footer">
+    <p>&copy; 2025 Deepfake Detection Project</p>
   </footer>
 
   <script src="js/uploadHandler.js"></script>
