@@ -1,107 +1,48 @@
 const fileInput = document.getElementById("fileInput");
-const dropZone = document.getElementById("dropZone");
-const analyseBtn = document.getElementById("analyseBtn");
-const progressWrap = document.getElementById("progressWrap");
-const progressBar = document.getElementById("progressBar");
-const resultCard = document.getElementById("resultCard");
-const resultBadge = document.getElementById("resultBadge");
-const confidenceText = document.getElementById("confidenceText");
-const heatmapImg = document.getElementById("heatmapImg");
+const termsChk  = document.getElementById("termsChk");
+const scanBtn   = document.getElementById("scanBtn");
+const progressShell = document.getElementById("progressShell");
+const progressFill  = document.getElementById("progressFill");
+const resultPanel   = document.getElementById("resultPanel");
+const verdict       = document.getElementById("verdict");
+const confText      = document.getElementById("confText");
+const heatImg       = document.getElementById("heatImg");
 
-let selectedFile = null;
-
-/* ---------- Drag & Drop ----------- */
-["dragenter", "dragover"].forEach(evt =>
-  dropZone.addEventListener(evt, e => {
-    e.preventDefault();
-    dropZone.style.borderColor = "var(--accent)";
-  })
-);
-
-["dragleave", "drop"].forEach(evt =>
-  dropZone.addEventListener(evt, e => {
-    e.preventDefault();
-    dropZone.style.borderColor = "#333";
-  })
-);
-
-dropZone.addEventListener("drop", e => {
-  selectedFile = e.dataTransfer.files[0];
-  afterFileSelect();
-});
-
-dropZone.addEventListener("click", () => fileInput.click());
-
-fileInput.addEventListener("change", () => {
-  selectedFile = fileInput.files[0];
-  afterFileSelect();
-});
-
-function afterFileSelect() {
-  if (!selectedFile) return;
-  dropZone.querySelector(".dz-text").textContent = selectedFile.name;
-  analyseBtn.disabled = false;
+/* Enable Scan only when a file is chosen and terms accepted */
+function ready() {
+  scanBtn.disabled = !(termsChk.checked && fileInput.files.length > 0);
 }
+fileInput.addEventListener("change", ready);
+termsChk.addEventListener("change", ready);
 
-/* ---------- Analyse Button ---------- */
-analyseBtn.addEventListener("click", () => {
-  if (!selectedFile) return;
-  simulateUploadAndDetect();
-});
-
-/* ---------- Simulated Detection ---------- */
-function simulateUploadAndDetect() {
-  analyseBtn.disabled = true;
-  progressWrap.style.display = "block";
-  progressBar.style.width = "0";
-
-  let progress = 0;
-  const fakeInterval = setInterval(() => {
-    progress += 10;
-    progressBar.style.width = progress + "%";
-    if (progress >= 100) {
-      clearInterval(fakeInterval);
-      showFakeResult(); // Replace with real fetch() when backend ready
+/* Fake scan for demo purposes */
+scanBtn.addEventListener("click", () => {
+  scanBtn.disabled = true;
+  progressShell.hidden = false;
+  let pct = 0;
+  const t = setInterval(() => {
+    pct += 10;
+    progressFill.style.width = pct + "%";
+    if (pct >= 100) {
+      clearInterval(t);
+      showDemo();
     }
-  }, 200);
-}
+  }, 120);
+});
 
-function showFakeResult() {
-  // ----- Fake verdict -----
-  const isFake = Math.random() > 0.5;
-  resultBadge.textContent = isFake ? "FAKE" : "REAL";
-  resultBadge.className = `result-badge ${isFake ? "FAKE" : "REAL"}`;
-  confidenceText.textContent = `Confidence: ${Math.floor(
-    80 + Math.random() * 20
-  )}%`;
-
-  // Placeholder heatmap image (replace later)
-  heatmapImg.src =
-    "https://via.placeholder.com/400x200.png?text=Grad-CAM+Heatmap";
-
-  resultCard.hidden = false;
-  progressWrap.style.display = "none";
+function showDemo() {
+  const fake = Math.random() > 0.5;
+  verdict.textContent = fake ? "FAKE" : "REAL";
+  verdict.className = `verdict ${fake ? "FAKE" : "REAL"}`;
+  confText.textContent = `Confidence – ${Math.floor(85 + Math.random()*14)} %`;
+  heatImg.src = "https://via.placeholder.com/500x220.png?text=Grad‑CAM+heat‑map";
+  resultPanel.hidden = false;
+  progressShell.hidden = true;
 }
 
 function resetUI() {
-  selectedFile = null;
-  dropZone.querySelector(".dz-text").textContent =
-    "Drag & drop a file here or browse";
-  analyseBtn.disabled = true;
-  resultCard.hidden = true;
-  heatmapImg.src = "";
+  fileInput.value = "";
+  progressFill.style.width = "0";
+  resultPanel.hidden = true;
+  ready();
 }
-const scanBtn   = document.getElementById("scanBtn");
-const urlInput  = document.getElementById("urlInput");
-const fileInput = document.getElementById("fileInput");
-const termsChk  = document.getElementById("termsChk");
-
-function toggleScanBtn() {
-  const hasUrl  = urlInput.value.trim().length > 0;
-  const hasFile = fileInput.files.length > 0;
-  scanBtn.disabled = !(termsChk.checked && (hasUrl || hasFile));
-}
-
-urlInput.addEventListener("input", toggleScanBtn);
-fileInput.addEventListener("change", toggleScanBtn);
-termsChk.addEventListener("change", toggleScanBtn);
