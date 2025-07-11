@@ -7,29 +7,53 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- ===== Navigation (shared) ===== -->
   <header class="navbar">
-    <h1 class="logo">Deepfake Detect</h1>
+    <h1 class="logo">Deepfake Detect</h1>
     <nav class="nav-links">
       <a href="index.html">Home</a>
-      <a href="detect.html" class="active">Try It</a>
+      <a href="detect.html" class="active">Try It</a>
       <a href="about.html">About</a>
     </nav>
   </header>
 
-  <main>
-    <section class="upload-area">
+  <!-- ===== Detection UI ===== -->
+  <main class="detect-page">
+    <!-- Upload Card -->
+    <section class="upload-card">
       <h2>Upload Image or Video</h2>
-      <input type="file" id="fileInput" />
-      <button onclick="handleUpload()">Analyze</button>
+
+      <!-- Drag‑and‑Drop Zone -->
+      <label for="fileInput" class="drop-zone" id="dropZone">
+        <p class="dz-icon">📂</p>
+        <p class="dz-text">Drag & drop a file here or <span class="dz-browse">browse</span></p>
+        <input type="file" id="fileInput" hidden />
+      </label>
+
+      <!-- Analyse Button -->
+      <button class="analyse-btn" id="analyseBtn" disabled>Analyse Now</button>
+
+      <!-- Progress Bar -->
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
     </section>
-    <section id="result"></section>
+
+    <!-- Result Card -->
+    <section class="result-card" id="resultCard" hidden>
+      <h2>Result</h2>
+      <div class="result-badge" id="resultBadge">REAL</div>
+      <p class="confidence" id="confidenceText">Confidence: 98%</p>
+      <img id="heatmapImg" alt="Grad‑CAM heatmap" />
+      <button class="analyse-btn" onclick="resetUI()">Analyse Another</button>
+    </section>
   </main>
 
+  <!-- ===== Footer (shared) ===== -->
   <footer class="site-footer">
-    <p>&copy; 2025 Deepfake Detection Project</p>
+    <p>&copy; 2025 Deepfake Detection Project</p>
   </footer>
 
   <script src="js/uploadHandler.js"></script>
 </body>
 </html>
-
