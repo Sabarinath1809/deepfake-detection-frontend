@@ -186,3 +186,11 @@ body {
   font-size: 0.9rem;
   color: #555;
 }
+.get-started-btn {
+  margin-top: 1.5rem;
+  padding: 1rem 2.2rem;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3);
+  text-decoration: none;
+  display: inline-block;
+}
