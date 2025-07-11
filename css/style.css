@@ -265,4 +265,22 @@ body {
 .foot-social a:hover { color: var(--accent); }
 .copyright { text-align: center; margin-top: 2rem; font-size: 0.8rem; color: #666; border-top: 1px solid #222; padding-top: 1rem; }
 
+/* File‑only button (large) */
+.file-only-btn{
+  display:inline-block;
+  width:100%;
+  padding:1.1rem 0;
+  margin-bottom:1.2rem;
+  border:2px dashed #333;
+  border-radius:8px;
+  background:#181818;
+  color:#ccc;
+  text-align:center;
+  cursor:pointer;
+  transition:background .25s,border-color .25s;
+  font-weight:600;
+}
+.file-only-btn:hover{background:#1f1f1f;border-color:var(--accent)}
+
+
 
