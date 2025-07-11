@@ -281,6 +281,28 @@ body {
   font-weight:600;
 }
 .file-only-btn:hover{background:#1f1f1f;border-color:var(--accent)}
+/* ==== Colour boosts ==== */
+.bright-nav{background:linear-gradient(90deg,#00203f 0%,#006666 50%,#009f9f 100%)}
+.rainbow{background:linear-gradient(90deg,#ff6bcb,#f8ff00,#3fdad8,#007cf0);-webkit-background-clip:text;color:transparent}
+.vivid-card{background:#1b1b1b;border:1px solid rgba(0,255,255,0.08);box-shadow:0 0 20px rgba(0,255,255,0.1)}
+.colourful-footer{background:#022;border-top:3px solid var(--accent)}
+
+/* File‑only button (with glow) */
+.file-only-btn{
+  display:inline-block;width:100%;padding:1.1rem 0;margin-bottom:1.2rem;
+  border:2px dashed #555;border-radius:8px;background:#111;color:#bbb;text-align:center;
+  cursor:pointer;font-weight:600;transition:all .25s;
+}
+.file-only-btn:hover{background:#0f2b2b;border-color:var(--accent);color:#fff}
+.file-only-btn.filled{border-style:solid;color:var(--accent);background:#082;width:100%}
+
+/* Buttons */
+.primary-btn{background:linear-gradient(90deg,#00d0ff 0%,#00ffa2 100%);color:#000}
+
+/* Verdict badges – brighter */
+.verdict.REAL{background:#00c774}
+.verdict.FAKE{background:#ff1744}
+
 
 
 
