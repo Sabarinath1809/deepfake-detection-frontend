@@ -19,9 +19,32 @@
 
   <!-- ░░ Detection Workspace ░░ -->
   <main class="scan-wrapper">
-    <!-- Upload card -->
-    <section class="scan-card vivid-card">
-      <h2 class="card-title">Upload & Scan</h2>
+ <!-- Upload card -->
+<section class="scan-card vivid-card">
+  <h2 class="card-title">Upload & Scan</h2>
+
+  <!-- NEW upload zone -->
+  <input
+    type="file"
+    id="fileInput"
+    class="file-drop"
+    accept="image/*,video/*"
+  />
+
+  <p class="hint">PNG, JPG, MP4, MOV… max 150 MB</p>
+
+  <label class="terms-line">
+    <input type="checkbox" id="termsChk" checked />
+    I accept the <a href="#">Terms</a>.
+  </label>
+
+  <button id="scanBtn" class="primary-btn" disabled>Scan</button>
+
+  <div class="progress-shell" id="progressShell" hidden>
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+</section>
+
 
       <!-- File chooser -->
       <label class="file-only-btn" for="fileInput" id="fileLabel">
