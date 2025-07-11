@@ -91,3 +91,17 @@ function resetUI() {
   resultCard.hidden = true;
   heatmapImg.src = "";
 }
+const scanBtn   = document.getElementById("scanBtn");
+const urlInput  = document.getElementById("urlInput");
+const fileInput = document.getElementById("fileInput");
+const termsChk  = document.getElementById("termsChk");
+
+function toggleScanBtn() {
+  const hasUrl  = urlInput.value.trim().length > 0;
+  const hasFile = fileInput.files.length > 0;
+  scanBtn.disabled = !(termsChk.checked && (hasUrl || hasFile));
+}
+
+urlInput.addEventListener("input", toggleScanBtn);
+fileInput.addEventListener("change", toggleScanBtn);
+termsChk.addEventListener("change", toggleScanBtn);
