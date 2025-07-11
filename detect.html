@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Try Deepfake Detection</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">Deepfake Detect</h1>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="detect.html" class="active">Try It</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="upload-area">
+      <h2>Upload Image or Video</h2>
+      <input type="file" id="fileInput" />
+      <button onclick="handleUpload()">Analyze</button>
+    </section>
+    <section id="result"></section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Deepfake Detection Project</p>
+  </footer>
+
+  <script src="js/uploadHandler.js"></script>
+</body>
+</html>
 
