@@ -326,6 +326,36 @@ body {
 
 /* Widen footer so it’s not glued to card */
 .scan-wrapper{padding-bottom:6rem}
+/* Choose button – white with teal hover */
+.choose-btn{
+  background:#fff;
+  color:#000;
+  padding:.9rem 1.6rem;
+  border:none;
+  border-radius:6px;
+  font-weight:600;
+  cursor:pointer;
+  transition:background .25s,transform .15s;
+  box-shadow:0 2px 6px rgba(0,0,0,.4);
+}
+.choose-btn:hover{
+  background:var(--accent);
+  color:#000;
+  transform:translateY(-2px);
+}
+
+.upload-row{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.8rem;
+  margin-bottom:1.4rem;
+}
+.file-name{
+  font-size:.85rem;
+  color:#888;
+}
+
 
 
 
